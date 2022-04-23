@@ -9,7 +9,9 @@ const useWordle = (solution) => {
 
   const formatGuess = () => {};
   const addNewGuess = () => {};
-  const handleKeyup = () => {};
+  const handleKeyup = ({ key }) => {
+    console.log(key);
+  };
 
   return { turn, currentGuess, guesses, isCorrect, handleKeyup };
 };
