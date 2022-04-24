@@ -10,7 +10,19 @@ const useWordle = (solution) => {
   const formatGuess = () => {};
   const addNewGuess = () => {};
   const handleKeyup = ({ key }) => {
-    console.log(key);
+    if (key === 'Backspace') {
+      setCurrentGuess((prev) => {
+        return prev.slice(0, -1);
+      });
+    }
+
+    if (/^[A-Za-z]$/.test(key)) {
+      if (currentGuess.length < 5) {
+        setCurrentGuess((prev) => {
+          return prev + key;
+        });
+      }
+    }
   };
 
   return { turn, currentGuess, guesses, isCorrect, handleKeyup };
